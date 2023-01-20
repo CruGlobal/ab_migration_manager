@@ -199,7 +199,7 @@ function doCommand(list, req, cb) {
       cb();
    } else {
       let command = list.shift();
-      if (command == "") {
+      if (command == "" || command == "\n") {
          doCommand(list, req, cb);
          return;
       }
