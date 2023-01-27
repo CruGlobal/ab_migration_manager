@@ -14,7 +14,7 @@ Make sure the AppBuilder stack is running. Then run the `ab-migration-manager` i
 ### Docker
 
 ```sh
-	#!/bin/bash
+    #!/bin/bash
 
     STACKNAME=example_appbuilder_stack
 
