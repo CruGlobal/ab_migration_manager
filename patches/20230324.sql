@@ -7,7 +7,7 @@
 # ************************************************************
 
 #
-# 1) Insert the Switcheroo Role
+# 1) Update Definitions table with new UI for Scope CRUD
 #
 
 LOCK TABLES `appbuilder_definition` WRITE;
