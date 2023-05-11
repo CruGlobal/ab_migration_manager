@@ -16,10 +16,11 @@ Make sure the AppBuilder stack is running. Then run the `ab-migration-manager` i
 ```sh
     #!/bin/bash
 
-    STACKNAME=example_appbuilder_stack
+    # Import STACKNAME from the .env file
+    source .env
 
     docker run \
-        -v ./config/local.js:/app/config/local.js \
+        --env-file .env \
         --network=${STACKNAME}_default \
         digiserve/ab-migration-manager:master node app.js
 ```
@@ -32,9 +33,8 @@ Make sure the AppBuilder stack is running. Then run the `ab-migration-manager` i
     source .env
 
     podman run \
-        -v ./config/local.js:/app/config/local.js \
+        --env-file=.env \
         --network=${STACKNAME}_default \
-        -e MYSQL_PASSWORD \
         docker.io/digiserve/ab-migration-manager:master node app.js
 ```
 
