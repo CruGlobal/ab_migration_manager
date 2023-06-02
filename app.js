@@ -28,7 +28,7 @@ const fs = require("fs");
 const path = require("path");
 const process = require("process");
 
-const AB = require("ab-utils");
+const AB = require("@digiserve/ab-utils");
 
 const Mysql = require("mysql"); // our  {DB Connection}
 const config = require(path.join(__dirname, "config", "local.js"));
@@ -141,7 +141,7 @@ function ReadTenants() {
       // ridden in the  req.connections().site.database  setting.
 
       let conn = req.connections();
-      if (conn.site && conn.site.database)
+      if (conn.site?.database)
          tenantDB = `\`${conn.site.database}\``;
       tenantDB += ".";
 
