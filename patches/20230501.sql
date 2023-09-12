@@ -34,12 +34,12 @@ UNLOCK TABLES;
 #
 
 LOCK TABLES `SITE_SCOPE` WRITE;
-INSERT INTO `SITE_SCOPE` (`uuid`, `created_at`, `updated_at`, `translations`, `objectIds`, `createdBy`)
+INSERT IGNORE INTO `SITE_SCOPE` (`uuid`, `created_at`, `updated_at`, `translations`, `Filters`,`objectIds`, `createdBy`)
 VALUES
-	('fc5055b6-9f96-4ee6-9f38-8d8a708661a7', '2023-05-01 05:36:35', '2023-05-01 05:36:35', '[{"language_code":"en","name":"User Management","description":"Able to access site user."}]', '["228e3d91-5e42-49ec-b37c-59323ae433a1"]', 'admin');
+	('fc5055b6-9f96-4ee6-9f38-8d8a708661a7', '2023-05-01 05:36:35', '2023-05-01 05:36:35', '[{"language_code":"en","name":"User Management","description":"Able to access site user."}]', '{"glue":"and","rules":[{"key":"9de6e282-277a-459b-aba1-66539e0037ea","rule":"not_contains","value":"753f062f-6083-4407-9878-1318ea0cd6a4"},{"key":"f1fccbbf-f226-4e9e-aa6a-119f8cc309b6","rule":"not_equal","value":"Switcheroo"},{"key":"f1fccbbf-f226-4e9e-aa6a-119f8cc309b6","rule":"not_equal","value":"System Admin"},{"key":"f1fccbbf-f226-4e9e-aa6a-119f8cc309b6","rule":"not_equal","value":"System Builder"}]}', '["228e3d91-5e42-49ec-b37c-59323ae433a1","c33692f3-26b7-4af3-a02e-139fb519296d"]', 'admin');
 UNLOCK TABLES;
 LOCK TABLES `AB_JOINMN_SCOPE_ROLE_roles` WRITE;
-INSERT INTO `AB_JOINMN_SCOPE_ROLE_roles` (`ROLE`, `SCOPE`)
+INSERT IGNORE INTO `AB_JOINMN_SCOPE_ROLE_roles` (`ROLE`, `SCOPE`)
 VALUES
 	('ee52974b-5276-427f-ad4c-f29af6b5caaf', 'fc5055b6-9f96-4ee6-9f38-8d8a708661a7');
 UNLOCK TABLES;
