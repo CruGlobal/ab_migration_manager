@@ -258,14 +258,21 @@ async function ProcessTenant(id) {
       let lastPatch = await tenantPullLastPatch(tenantReq);
       let currPatch = lastPatch;
       tLog(id, `last patch = "${lastPatch || "none"}"`);
-
+      let error;
       // foreach file:
       for (var f = 0; f < patchFiles.length; f++) {
          let patch = patchFiles[f];
          if (lastPatch < patch) {
-            await tenantProcessPatch(tenantReq, patch);
-            tLog(id, `updated to patch ${patch}`);
-            lastPatch = patch;
+            try {
+               await tenantProcessPatch(tenantReq, patch);
+               tLog(id, `updated to patch ${patch}`);
+               lastPatch = patch;
+            } catch (err) {
+               error = err;
+               tLog(id, `error processing patch ${patch}`);
+               // Stop any remaining patches but make sure the previous patch is saved
+               break;
+            }
          }
       }
 
@@ -274,6 +281,10 @@ async function ProcessTenant(id) {
          await tenantPostLastPatch(tenantReq, lastPatch);
       }
       tenantReq.queryIsolateClose();
+      if (error) {
+         if (currPatch != lastPatch) tLog(id, `completed up until patch ${lastPatch}`);
+         throw error;
+      }
       tLog(id, "tenant migration complete.");
    } catch (e) {
       console.error(`   [${id}] Error processing Tenant`);
