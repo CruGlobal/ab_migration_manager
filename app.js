@@ -199,13 +199,15 @@ function doCommand(list, req, cb) {
       cb();
    } else {
       let command = list.shift();
-      if (command == "" || command == "\n") {
+      // Test for any non white space character, if none found skip
+      if (!/\S/.test(command)) {
          doCommand(list, req, cb);
          return;
       }
       // console.log(command);
       req.queryIsolate(command, [], (err, results) => {
-         if (err) {
+         // Ignore empty query error
+         if (err && err.code !== "ER_EMPTY_QUERY") {
             err.sql = command;
             cb(err);
             return;
