@@ -7,10 +7,11 @@
 
 # Dump of table SITE_KEY
 # ------------------------------------------------------------
+-- FIX: Error Code: 1451. Cannot delete or update a parent row: a foreign key constraint fails
+-- when the table already exists
+-- DROP TABLE IF EXISTS `SITE_KEY`;
 
-DROP TABLE IF EXISTS `SITE_KEY`;
-
-CREATE TABLE `SITE_KEY` (
+CREATE TABLE IF NOT EXISTS `SITE_KEY` (
   `uuid` varchar(255) NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
@@ -88,4 +89,3 @@ ON DUPLICATE KEY UPDATE
     updatedAt = VALUES(updatedAt);    
 
 UNLOCK TABLES;
-
