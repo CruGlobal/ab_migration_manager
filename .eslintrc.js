@@ -2,26 +2,22 @@
 //   ║╣ ╚═╗║  ║║║║ ║ ├┬┘│
 //  o╚═╝╚═╝╩═╝╩╝╚╝ ╩ ┴└─└─┘
 // A set of basic code conventions designed to encourage quality and consistency
-// across your Sails app's code base.  These rules are checked against
-// automatically any time you run `npm test`.
+// across your app's code base.  These rules are checked against automatically
+// any time you run `npm test`.
 //
 // > Note: If you're using mocha, you'll want to add an extra override file to your
 // > `test/` folder so that eslint will tolerate mocha-specific globals like `before`
 // > and `describe`.
 // Designed for ESLint v4.
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-// For more information about any of the rules below, check out the relevant
-// reference page on eslint.org.  For example, to get details on "no-sequences",
-// you would visit `http://eslint.org/docs/rules/no-sequences`.  If you're unsure
-// or could use some advice, come by https://sailsjs.com/support.
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 module.exports = {
    env: {
       node: true,
+      es6: true,
    },
 
    parserOptions: {
-      ecmaVersion: 8,
+      ecmaVersion: 2020,
    },
 
    root: true,
@@ -46,5 +42,19 @@ module.exports = {
 
       // eslint rule customization here:
       "no-console": 0, // allow console.log() in our services
+      "no-unused-vars": 0, // allow unused variables (webpack will remove them)
+   },
+
+   globals: {
+      AB: true, // global ABFactory
+      io: true, // socket.io
+      reports: true, // webix's Report Manager widget
+      tinymce: true,
+      Selectivity: true,
+      webix: true, // webix
+      gantt: true,
+      $$: true, // webix element
+      scheduler: true,
+      _: true,
    },
 };
