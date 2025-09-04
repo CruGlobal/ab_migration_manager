@@ -141,8 +141,7 @@ function ReadTenants() {
       // ridden in the  req.connections().site.database  setting.
 
       let conn = req.connections();
-      if (conn.site?.database)
-         tenantDB = `\`${conn.site.database}\``;
+      if (conn.site?.database) tenantDB = `\`${conn.site.database}\``;
       tenantDB += ".";
 
       let sql = `SELECT * FROM ${tenantDB}\`site_tenant\` `;
@@ -217,9 +216,9 @@ function doCommand(list, req, cb) {
    }
 }
 
-function tenantProcessPatch(req, fileName) {
+function tenantProcessPatch(req, fileName, directory = "patches") {
    return new Promise((resolve, reject) => {
-      let filePath = path.join(__dirname, "patches", fileName);
+      let filePath = path.join(__dirname, directory, fileName);
       let contents = fs.readFileSync(filePath, { encoding: "utf8" });
       let commands = contents.split(";");
       doCommand(commands, req, (err) => {
@@ -282,7 +281,8 @@ async function ProcessTenant(id) {
       }
       tenantReq.queryIsolateClose();
       if (error) {
-         if (currPatch != lastPatch) tLog(id, `completed up until patch ${lastPatch}`);
+         if (currPatch != lastPatch)
+            tLog(id, `completed up until patch ${lastPatch}`);
          throw error;
       }
       tLog(id, "tenant migration complete.");
@@ -319,6 +319,38 @@ async function PullPatchFiles() {
    });
 }
 
+/**
+ * Checks if a database with a specific name exists.
+ * @param {string} dbName - The name of the database to check for.
+ * @returns {Promise<boolean>} A promise that resolves to true if the database exists, false otherwise.
+ */
+function dbExists(dbName = "appbuilder-admin") {
+   return new Promise((resolve, reject) => {
+      DB.query("SHOW DATABASES", (err, rows) => {
+         if (err) {
+            return reject(err);
+         }
+         const exists = rows.some((row) => row.Database === dbName);
+         resolve(exists);
+      });
+   });
+}
+
+/**
+ * Add the appbuilder-admin database and base site tables / definitions
+ */
+async function initDB() {
+   log("No `appbuilder-admin` database found. Initializing...");
+   const initDir = path.join(__dirname, "patches");
+   const sqlFiles = fs.readdirSync(initDir);
+   const req = new AB.reqService(mockReq(), mockController());
+   for (const sqlFile of sqlFiles) {
+      log(`applying ${sqlFile}`);
+      await tenantProcessPatch(req, sqlFile, "init"``);
+   }
+   log("Done initilizing `appbuilder-admin`");
+}
+
 //
 // Now we just wait to be closed out when the docker stack is removed.
 function wait() {
@@ -329,6 +361,9 @@ async function Do() {
    try {
       await PullPatchFiles();
       await Connect();
+      if (!(await dbExists())) {
+         await initDB();
+      }
       let tenantIDs = await ReadTenants();
       console.log(`${tenantIDs.length} tenants to process.`);
 
