@@ -27,6 +27,7 @@
 const fs = require("fs");
 const path = require("path");
 const process = require("process");
+const splitSqlByDelimiter = require("./util/splitSql");
 
 const AB = require("@digiserve/ab-utils");
 
@@ -224,7 +225,7 @@ function tenantProcessPatch(req, fileName, directory = "patches") {
    return new Promise((resolve, reject) => {
       let filePath = path.join(__dirname, directory, fileName);
       let contents = fs.readFileSync(filePath, { encoding: "utf8" });
-      let commands = contents.split(";");
+      let commands = splitSqlByDelimiter(contents);
       doCommand(commands, req, (err) => {
          if (err) {
             reject(err);
