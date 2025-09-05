@@ -34,8 +34,12 @@ const Mysql = require("mysql"); // our  {DB Connection}
 const config = require(path.join(__dirname, "config", "local.js"));
 // {json}
 // our current set of configuration options for connecting to our DB
+const site = config.datastores.site;
+// We might not have an admin tenant database configured yet so don't try to
+// connect to it
+delete site.database;
 
-const DB = Mysql.createConnection(config.datastores.site);
+const DB = Mysql.createConnection(site);
 DB.on("error", (err) => {
    tLog("DB.on(error):", err);
 
