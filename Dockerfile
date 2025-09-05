@@ -13,10 +13,12 @@ ARG BRANCH=master
 
 FROM digiserve/service-cli:${BRANCH}
 
-COPY . /app
+COPY ./package* /app/
 
 WORKDIR /app
 
 RUN npm i -f
+
+COPY . /app
 
 CMD ["node", "--inspect=0.0.0.0:9229", "app.js"]
