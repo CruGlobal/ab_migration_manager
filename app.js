@@ -329,12 +329,17 @@ async function PullPatchFiles() {
  * @returns {Promise<boolean>} A promise that resolves to true if the database exists, false otherwise.
  */
 function dbExists(dbName = "appbuilder-admin") {
+   console.log("Checking for db:", dbName);
    return new Promise((resolve, reject) => {
       DB.query("SHOW DATABASES", (err, rows) => {
+         // __AUTO_GENERATED_PRINT_VAR_START__
+         console.log("dbExists#(anon)#(anon) rows:", rows); // __AUTO_GENERATED_PRINT_VAR_END__
          if (err) {
             return reject(err);
          }
          const exists = rows.some((row) => row.Database === dbName);
+         // __AUTO_GENERATED_PRINT_VAR_START__
+         console.log("dbExists#(anon)#(anon) exists:", exists); // __AUTO_GENERATED_PRINT_VAR_END__
          resolve(exists);
       });
    });
@@ -344,15 +349,15 @@ function dbExists(dbName = "appbuilder-admin") {
  * Add the appbuilder-admin database and base site tables / definitions
  */
 async function initDB() {
-   log("No `appbuilder-admin` database found. Initializing...");
-   const initDir = path.join(__dirname, "patches");
+   console.log("No `appbuilder-admin` database found. Initializing...");
+   const initDir = path.join(__dirname, "init");
    const sqlFiles = fs.readdirSync(initDir);
    const req = new AB.reqService(mockReq(), mockController());
    for (const sqlFile of sqlFiles) {
-      log(`applying ${sqlFile}`);
-      await tenantProcessPatch(req, sqlFile, "init"``);
+      console.log(`applying ${sqlFile}`);
+      await tenantProcessPatch(req, sqlFile, "init");
    }
-   log("Done initilizing `appbuilder-admin`");
+   console.log("Done initilizing `appbuilder-admin`");
 }
 
 //
