@@ -238,9 +238,13 @@ function tenantProcessPatch(req, fileName, directory = "patches") {
 
 function tenantPostLastPatch(req, lastPatch) {
    return new Promise((resolve, reject) => {
-      let sql =
-         'UPDATE `SITE_CONFIG` SET `value` = ? WHERE `key` = "migration-last-patch";';
-      req.queryIsolate(sql, [lastPatch], (err, results /*, fields */) => {
+      let sql = [
+         "LOCK TABLES `SITE_CONFIG` WRITE",
+         `UPDATE \`SITE_CONFIG\` SET \`value\` = "${lastPatch}" WHERE \`key\` = "migration-last-patch"`,
+         "UNLOCK TABLES",
+      ];
+      doCommand(sql, req, (err) => {
+         // req.queryIsolate(sql, [lastPatch], (err, results /*, fields */) => {
          if (err) {
             console.log(err);
             reject(err);
