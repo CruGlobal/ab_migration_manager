@@ -337,14 +337,10 @@ function dbExists(dbName = "appbuilder-admin") {
    console.log("Checking for db:", dbName);
    return new Promise((resolve, reject) => {
       DB.query("SHOW DATABASES", (err, rows) => {
-         // __AUTO_GENERATED_PRINT_VAR_START__
-         console.log("dbExists#(anon)#(anon) rows:", rows); // __AUTO_GENERATED_PRINT_VAR_END__
          if (err) {
             return reject(err);
          }
          const exists = rows.some((row) => row.Database === dbName);
-         // __AUTO_GENERATED_PRINT_VAR_START__
-         console.log("dbExists#(anon)#(anon) exists:", exists); // __AUTO_GENERATED_PRINT_VAR_END__
          resolve(exists);
       });
    });
