@@ -341,7 +341,19 @@ function dbExists(dbName = "appbuilder-admin") {
             return reject(err);
          }
          const exists = rows.some((row) => row.Database === dbName);
-         resolve(exists);
+         // Temporary code to fix a partial init
+         if (exists) {
+            DB.query(
+               "SHOW TABLES FROM `appbuilder-admin` LIKE 'site_tenant'",
+               (_, rows) => {
+                  if (rows.length > 0) {
+                     resolve(true);
+                  } else resolve(false);
+               }
+            );
+         } else {
+            resolve(exists);
+         }
       });
    });
 }
