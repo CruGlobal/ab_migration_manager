@@ -21,23 +21,31 @@ VALUES
     ('80acfc8d-ffc7-4d01-b5da-912539a7734e','Plugin Add.form.textbox','view','{\"id\":\"80acfc8d-ffc7-4d01-b5da-912539a7734e\",\"type\":\"view\",\"key\":\"textbox\",\"icon\":\"i-cursor\",\"settings\":{\"type\":\"single\",\"objectId\":\"8a20528a-e472-4e80-911a-b14285425caf\",\"fieldId\":\"b5cb8b98-34c1-4dd3-a43c-335106828c98\",\"height\":0},\"accessLevels\":{},\"translations\":[{\"language_code\":\"en\",\"label\":\"Plugin Add.form.textbox\"}],\"viewIDs\":[],\"position\":{\"dx\":1,\"dy\":1,\"y\":2},\"isRoot\":false}','2025-11-07 03:21:26','2025-11-07 03:21:26'),
     ('d48cfa54-3aa3-41ba-b2b1-175db9ff98cc','Plugin Add.form.textbox','view','{\"id\":\"d48cfa54-3aa3-41ba-b2b1-175db9ff98cc\",\"type\":\"view\",\"key\":\"textbox\",\"icon\":\"i-cursor\",\"name\":\"Plugin Add.form.textbox\",\"settings\":{\"type\":\"single\",\"objectId\":\"8a20528a-e472-4e80-911a-b14285425caf\",\"fieldId\":\"b5cb8b98-34c1-4dd3-a43c-335106828c98\",\"height\":0},\"accessLevels\":{},\"translations\":[{\"language_code\":\"en\",\"label\":\"Plugin Add.form.textbox\"}],\"viewIDs\":[],\"position\":{\"dx\":1,\"dy\":1,\"y\":1,\"x\":0},\"isRoot\":false}','2025-11-07 07:31:49','2025-11-07 07:40:30'),
     ('b98d60d4-cab0-44bd-8dbe-05d18c72ae1a','Plugin Add.form.checkbox','view','{\"id\":\"b98d60d4-cab0-44bd-8dbe-05d18c72ae1a\",\"type\":\"view\",\"key\":\"checkbox\",\"icon\":\"check-square-o\",\"settings\":{\"objectId\":\"8a20528a-e472-4e80-911a-b14285425caf\",\"fieldId\":\"e5e111df-a082-40bc-bc55-f2277892169c\",\"height\":0},\"accessLevels\":{},\"translations\":[{\"language_code\":\"en\",\"label\":\"Plugin Add.form.checkbox\"}],\"viewIDs\":[],\"position\":{\"dx\":1,\"dy\":1,\"y\":3},\"isRoot\":false}','2025-11-07 03:21:26','2025-11-07 03:21:26'),
-    ('4c3a2da0-fa28-40da-ac47-559345fe9224','Plugin Add.form.textbox','view','{\"id\":\"4c3a2da0-fa28-40da-ac47-559345fe9224\",\"type\":\"view\",\"key\":\"textbox\",\"icon\":\"i-cursor\",\"settings\":{\"type\":\"single\",\"objectId\":\"8a20528a-e472-4e80-911a-b14285425caf\",\"fieldId\":\"86f267b8-1d2e-4edc-a186-350e9c0bc27d\",\"height\":0},\"accessLevels\":{},\"translations\":[{\"language_code\":\"en\",\"label\":\"Plugin Add.form.textbox\"}],\"viewIDs\":[],\"position\":{\"dx\":1,\"dy\":1,\"y\":4},\"isRoot\":false}','2025-11-07 03:21:26','2025-11-07 03:21:26');
+    ('4c3a2da0-fa28-40da-ac47-559345fe9224','Plugin Add.form.textbox','view','{\"id\":\"4c3a2da0-fa28-40da-ac47-559345fe9224\",\"type\":\"view\",\"key\":\"textbox\",\"icon\":\"i-cursor\",\"settings\":{\"type\":\"single\",\"objectId\":\"8a20528a-e472-4e80-911a-b14285425caf\",\"fieldId\":\"86f267b8-1d2e-4edc-a186-350e9c0bc27d\",\"height\":0},\"accessLevels\":{},\"translations\":[{\"language_code\":\"en\",\"label\":\"Plugin Add.form.textbox\"}],\"viewIDs\":[],\"position\":{\"dx\":1,\"dy\":1,\"y\":4},\"isRoot\":false}','2025-11-07 03:21:26','2025-11-07 03:21:26'),
+    ('2be603cd-faba-43ad-a47d-37a3c46bf71c','Plugins','datacollection','{\"id\":\"2be603cd-faba-43ad-a47d-37a3c46bf71c\",\"name\":\"Plugins\",\"type\":\"datacollection\",\"settings\":{\"linkDatacollectionID\":\"\",\"linkFieldID\":\"\",\"followDatacollectionID\":\"\",\"objectWorkspace\":{\"filterConditions\":{\"glue\":\"and\",\"rules\":[]},\"sortFields\":[]},\"loadAll\":false,\"isQuery\":false,\"populate\":true,\"syncType\":1,\"skipPack\":false,\"select\":null,\"datasourceID\":\"8a20528a-e472-4e80-911a-b14285425caf\"},\"translations\":[{\"language_code\":\"en\",\"label\":\"Plugins\"}]}','2025-11-06 09:37:49','2025-11-06 09:37:49'),
+    ('7ab8a986-24d4-4e95-b114-97741facb60c','Plugins','view','{\"id\":\"7ab8a986-24d4-4e95-b114-97741facb60c\",\"type\":\"view\",\"key\":\"viewcontainer\",\"icon\":\"braille\",\"tabicon\":\"plug\",\"name\":\"Plugins\",\"settings\":{\"height\":0,\"columns\":1,\"removable\":true,\"movable\":true},\"accessLevels\":{},\"translations\":[{\"language_code\":\"en\",\"label\":\"Plugins\",\"aliasname\":\"Plugins\"}],\"viewIDs\":[\"f7b51521-1848-4eeb-aaf1-22a481b3be56\",\"672af0ee-8392-46bb-8e33-97a70676f69c\"],\"position\":{\"dx\":1,\"dy\":1},\"isRoot\":false}','2025-08-23 00:21:44','2025-11-07 09:55:05'),
+    ('f7b51521-1848-4eeb-aaf1-22a481b3be56','Plugins.grid','view','{\"id\":\"f7b51521-1848-4eeb-aaf1-22a481b3be56\",\"type\":\"view\",\"key\":\"grid\",\"icon\":\"table\",\"name\":\"Plugins.grid\",\"settings\":{\"height\":0,\"columnSpan\":1,\"rowSpan\":1,\"dataviewID\":\"2be603cd-faba-43ad-a47d-37a3c46bf71c\",\"gridFilter\":{\"filterOption\":0,\"queryRules\":[],\"isGlobalToolbar\":0},\"detailsPage\":\"\",\"editPage\":\"\",\"detailsTab\":\"\",\"editTab\":\"\",\"frozenColumnID\":\"\",\"hiddenFields\":[],\"summaryColumns\":[],\"countColumns\":[],\"isEditable\":1,\"massUpdate\":0,\"allowDelete\":1,\"isSortable\":1,\"isExportable\":0,\"showToolbar\":1,\"hideHeader\":0,\"labelAsField\":0,\"hideButtons\":0,\"groupBy\":\"\"},\"accessLevels\":{},\"translations\":[{\"language_code\":\"en\",\"label\":\"Plugins.grid\"}],\"viewIDs\":[],\"position\":{\"dx\":1,\"dy\":1,\"x\":0,\"y\":1},\"isRoot\":false}','2025-11-07 03:13:28','2025-11-07 09:55:04'),
+    ('672af0ee-8392-46bb-8e33-97a70676f69c','Plugins.menu','view','{\"id\":\"672af0ee-8392-46bb-8e33-97a70676f69c\",\"type\":\"view\",\"key\":\"menu\",\"icon\":\"th-large\",\"name\":\"Plugins.menu\",\"settings\":{\"height\":0,\"columnSpan\":1,\"rowSpan\":1,\"pages\":[],\"orientation\":\"x\",\"buttonStyle\":\"ab-menu-default\",\"menuAlignment\":\"ab-menu-right\",\"menuInToolbar\":1,\"menuPadding\":10,\"menuTheme\":\"webix_dark\",\"menuPosition\":\"center\",\"order\":[{\"parent\":0,\"position\":0,\"icon\":\"plus\",\"type\":\"page\",\"pageId\":\"58513aeb-cb50-40b1-9a5b-1c54cbae6d48\",\"isChecked\":\"true\",\"translations\":[{\"language_code\":\"en\",\"label\":\"Plugin Add\",\"aliasname\":\"Plugin Add\"}]}],\"menuTextLeft\":\"\"},\"accessLevels\":{},\"translations\":[{\"language_code\":\"en\",\"label\":\"Plugins.menu\",\"menuTextLeft\":\"Plugin Management\",\"menuTextCenter\":\"\",\"menuTextRight\":\"\"}],\"viewIDs\":[],\"position\":{\"dx\":1,\"dy\":1,\"x\":0,\"y\":0},\"isRoot\":false}','2025-11-07 09:54:57','2025-11-07 10:00:29');
 
 UNLOCK TABLES;
 
-SET @app_json := (SELECT `json`
-FROM appbuilder_definition
-WHERE `id` = '227bcbb3-437f-4bb5-a5a1-ec3198696206'
-LIMIT 1);
+-- [[ OBJECTS ]] --
+-- INSERT `SitePlugins` & `SitePluginLinks` Objects
+UPDATE `appbuilder_definition` 
+SET `json` = JSON_SET(`json`, '$.objectIDs', JSON_ARRAY("08826ac7-4b33-4745-a3d7-f7831ca4ff59", "090cde9f-71ba-4597-bdb2-79b84816e86e", "42658374-ed94-49af-90a4-05c048b6f041", "228e3d91-5e42-49ec-b37c-59323ae433a1", "c33692f3-26b7-4af3-a02e-139fb519296d", "af10e37c-9b3a-4dc6-a52a-85d52320b659", "d36ae4c8-edef-48d8-bd9c-79a0edcaa067", "d84cd351-d96c-490f-9afb-2a0b880ca0ec", "4a9d89c9-f4eb-41af-91e4-909eff389f3e", "c2ba85be0-78db-4eda-ba43-c2c4e3831849", "8a20528a-e472-4e80-911a-b14285425caf", "7ff322ff-3434-4611-9fd1-4d2996414c1a"))
+WHERE `id` = '227bcbb3-437f-4bb5-a5a1-ec3198696206';
 
-SET @app_object_ids := JSON_EXTRACT(@app_json, '$.json.objectIDs');
+-- [[ DATA COLLECTIONS ]] --
+-- INSERT `Plugins` DC
+UPDATE `appbuilder_definition` 
+SET `json` = JSON_SET(`json`, '$.datacollectionIDs', JSON_ARRAY("190a0a12-ea9e-4764-a6c9-be6f8b40417d", "bbef27bb-4673-468a-8c7b-ddd8c6454f19", "4f801bac-c305-4067-bb2b-5968d0d2ae97", "304a4a2c-1374-4f67-8a98-b5dc331df7a1", "bb6440f4-2b73-4218-9482-4e1447ef90c6", "2c46aa53-ebb4-47b2-9e49-66fb67dec962", "a415f8a4-3b9f-4e29-878e-70599d365a74", "d66b0694-921a-4504-93c2-2338ae747521", "a28b6597-5406-405a-a30c-029c9acd667d", "57e2acf3-3315-4896-9182-b96768f95fa3", "2be603cd-faba-43ad-a47d-37a3c46bf71c"))
+WHERE `id` = '227bcbb3-437f-4bb5-a5a1-ec3198696206';
 
--- INSERT `SitePlugins` Object
-SET @app_object_ids := JSON_ARRAY_INSERT(@app_object_ids, '$[0]', '8a20528a-e472-4e80-911a-b14285425caf');
--- INSERT `SitePluginLinks` Object
-SET @app_object_ids := JSON_ARRAY_INSERT(@app_object_ids, '$[0]', '7ff322ff-3434-4611-9fd1-4d2996414c1a');
--- UPDATE `Site Administration` App to include new Objects
-UPDATE `appbuilder_definition` SET `json` = JSON_SET(@app_json, '$.json.objectIDs', @app_object_ids) WHERE `id` = '227bcbb3-437f-4bb5-a5a1-ec3198696206';
+-- [[ TAB VIEWS ]] --
+-- INSERT `Plugin` Tabview
+UPDATE `appbuilder_definition` 
+SET `json` = JSON_SET(`json`, '$.datacollectionIDs', JSON_ARRAY("f37866de-d38d-4153-a775-8b47af0d6db1", "1a3e991e-aa1e-4eef-8cf8-fd7c5d97ae53", "4c9c67d1-d687-470d-aa99-4b37fb0dbbb0", "40effdf5-1a5d-4650-9ff8-9d5e863ac7ab", "7ab8a986-24d4-4e95-b114-97741facb60c"))
+WHERE `id` = '63a4cd7c-795e-4aa6-aae5-b6a08e0b39dd';
 
 DROP TABLE IF EXISTS `SITE_PLUGIN`;
 CREATE TABLE `SITE_PLUGIN` (
