@@ -1,6 +1,6 @@
 LOCK TABLES `appbuilder_definition` WRITE;
 
-INSERT INTO `appbuilder_definition` (`id`, `name`, `type`, `json`, `createdAt`, `updatedAt`)
+INSERT IGNORE INTO `appbuilder_definition` (`id`, `name`, `type`, `json`, `createdAt`, `updatedAt`)
 VALUES
     ('8a20528a-e472-4e80-911a-b14285425caf','SitePlugins','object','{\"id\":\"8a20528a-e472-4e80-911a-b14285425caf\",\"type\":\"object\",\"name\":\"SitePlugins\",\"labelFormat\":\"{886a68ca-2b97-4f90-9ebf-4efd7f73dad5}\",\"labelSettings\":{\"isNoLabelDisplay\":0},\"isImported\":0,\"isExternal\":0,\"tableName\":\"SITE_PLUGIN\",\"primaryColumnName\":\"uuid\",\"transColumnName\":\"\",\"urlPath\":\"\",\"objectWorkspace\":{\"sortFields\":[],\"filterConditions\":[],\"frozenColumnID\":\"\",\"hiddenFields\":[]},\"isSystemObject\":1,\"translations\":[{\"language_code\":\"en\",\"label\":\"SitePlugins\"}],\"fieldIDs\":[\"886a68ca-2b97-4f90-9ebf-4efd7f73dad5\",\"54212e74-7e57-4d6b-9d78-5e958a129697\",\"b5cb8b98-34c1-4dd3-a43c-335106828c98\",\"e5e111df-a082-40bc-bc55-f2277892169c\",\"86f267b8-1d2e-4edc-a186-350e9c0bc27d\",\"f8684a6c-3128-4449-b6a2-0e644a2b41d8\",\"ce5874bd-bbe5-417c-b040-3a45c7549e0c\"],\"importedFieldIDs\":[],\"indexIDs\":[],\"createdInAppID\":\"227bcbb3-437f-4bb5-a5a1-ec3198696206\"}','2025-11-06 08:40:06','2025-11-08 08:35:07'),
     ('886a68ca-2b97-4f90-9ebf-4efd7f73dad5','SitePlugins->Name','field','{\"id\":\"886a68ca-2b97-4f90-9ebf-4efd7f73dad5\",\"type\":\"field\",\"key\":\"string\",\"icon\":\"font\",\"isImported\":0,\"columnName\":\"Name\",\"settings\":{\"showIcon\":1,\"required\":0,\"unique\":0,\"validationRules\":\"[]\",\"default\":\"\",\"maxLength\":\"\",\"supportMultilingual\":1,\"width\":100,\"translations\":[{\"language_code\":\"en\",\"default\":\"\"}]},\"translations\":[{\"language_code\":\"en\",\"label\":\"Name\"}]}','2025-11-06 08:41:40','2025-11-06 08:41:40'),
@@ -47,8 +47,7 @@ UPDATE `appbuilder_definition`
 SET `json` = JSON_SET(`json`, '$.datacollectionIDs', JSON_ARRAY("f37866de-d38d-4153-a775-8b47af0d6db1", "1a3e991e-aa1e-4eef-8cf8-fd7c5d97ae53", "4c9c67d1-d687-470d-aa99-4b37fb0dbbb0", "40effdf5-1a5d-4650-9ff8-9d5e863ac7ab", "7ab8a986-24d4-4e95-b114-97741facb60c"))
 WHERE `id` = '63a4cd7c-795e-4aa6-aae5-b6a08e0b39dd';
 
-DROP TABLE IF EXISTS `SITE_PLUGIN`;
-CREATE TABLE `SITE_PLUGIN` (
+CREATE TABLE IF NOT EXISTS `SITE_PLUGIN` (
   `uuid` varchar(255) NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
@@ -61,8 +60,7 @@ CREATE TABLE `SITE_PLUGIN` (
   PRIMARY KEY (`uuid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
-DROP TABLE IF EXISTS `SITE_PLUGIN_LINK`;
-CREATE TABLE `SITE_PLUGIN_LINK` (
+CREATE TABLE IF NOT EXISTS `SITE_PLUGIN_LINK` (
   `uuid` varchar(255) NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
