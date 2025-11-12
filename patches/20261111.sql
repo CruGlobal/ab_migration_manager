@@ -32,19 +32,19 @@ UNLOCK TABLES;
 -- [[ OBJECTS ]] --
 -- INSERT `SitePlugins` & `SitePluginLinks` Objects
 UPDATE `appbuilder_definition` 
-SET `json` = JSON_SET(`json`, '$.objectIDs', JSON_ARRAY("08826ac7-4b33-4745-a3d7-f7831ca4ff59", "090cde9f-71ba-4597-bdb2-79b84816e86e", "42658374-ed94-49af-90a4-05c048b6f041", "228e3d91-5e42-49ec-b37c-59323ae433a1", "c33692f3-26b7-4af3-a02e-139fb519296d", "af10e37c-9b3a-4dc6-a52a-85d52320b659", "d36ae4c8-edef-48d8-bd9c-79a0edcaa067", "d84cd351-d96c-490f-9afb-2a0b880ca0ec", "4a9d89c9-f4eb-41af-91e4-909eff389f3e", "c2ba85be0-78db-4eda-ba43-c2c4e3831849", "8a20528a-e472-4e80-911a-b14285425caf", "7ff322ff-3434-4611-9fd1-4d2996414c1a"))
+SET `json` = JSON_SET(`json`, '$.json.objectIDs', JSON_ARRAY("08826ac7-4b33-4745-a3d7-f7831ca4ff59", "090cde9f-71ba-4597-bdb2-79b84816e86e", "42658374-ed94-49af-90a4-05c048b6f041", "228e3d91-5e42-49ec-b37c-59323ae433a1", "c33692f3-26b7-4af3-a02e-139fb519296d", "af10e37c-9b3a-4dc6-a52a-85d52320b659", "d36ae4c8-edef-48d8-bd9c-79a0edcaa067", "d84cd351-d96c-490f-9afb-2a0b880ca0ec", "4a9d89c9-f4eb-41af-91e4-909eff389f3e", "c2ba85be0-78db-4eda-ba43-c2c4e3831849", "8a20528a-e472-4e80-911a-b14285425caf", "7ff322ff-3434-4611-9fd1-4d2996414c1a"))
 WHERE `id` = '227bcbb3-437f-4bb5-a5a1-ec3198696206';
 
 -- [[ DATA COLLECTIONS ]] --
 -- INSERT `Plugins` DC
 UPDATE `appbuilder_definition` 
-SET `json` = JSON_SET(`json`, '$.datacollectionIDs', JSON_ARRAY("190a0a12-ea9e-4764-a6c9-be6f8b40417d", "bbef27bb-4673-468a-8c7b-ddd8c6454f19", "4f801bac-c305-4067-bb2b-5968d0d2ae97", "304a4a2c-1374-4f67-8a98-b5dc331df7a1", "bb6440f4-2b73-4218-9482-4e1447ef90c6", "2c46aa53-ebb4-47b2-9e49-66fb67dec962", "a415f8a4-3b9f-4e29-878e-70599d365a74", "d66b0694-921a-4504-93c2-2338ae747521", "a28b6597-5406-405a-a30c-029c9acd667d", "57e2acf3-3315-4896-9182-b96768f95fa3", "2be603cd-faba-43ad-a47d-37a3c46bf71c"))
+SET `json` = JSON_SET(`json`, '$.json.datacollectionIDs', JSON_ARRAY("190a0a12-ea9e-4764-a6c9-be6f8b40417d", "bbef27bb-4673-468a-8c7b-ddd8c6454f19", "4f801bac-c305-4067-bb2b-5968d0d2ae97", "304a4a2c-1374-4f67-8a98-b5dc331df7a1", "bb6440f4-2b73-4218-9482-4e1447ef90c6", "2c46aa53-ebb4-47b2-9e49-66fb67dec962", "a415f8a4-3b9f-4e29-878e-70599d365a74", "d66b0694-921a-4504-93c2-2338ae747521", "a28b6597-5406-405a-a30c-029c9acd667d", "57e2acf3-3315-4896-9182-b96768f95fa3", "2be603cd-faba-43ad-a47d-37a3c46bf71c"))
 WHERE `id` = '227bcbb3-437f-4bb5-a5a1-ec3198696206';
 
 -- [[ TAB VIEWS ]] --
 -- INSERT `Plugin` Tabview
 UPDATE `appbuilder_definition` 
-SET `json` = JSON_SET(`json`, '$.datacollectionIDs', JSON_ARRAY("f37866de-d38d-4153-a775-8b47af0d6db1", "1a3e991e-aa1e-4eef-8cf8-fd7c5d97ae53", "4c9c67d1-d687-470d-aa99-4b37fb0dbbb0", "40effdf5-1a5d-4650-9ff8-9d5e863ac7ab", "7ab8a986-24d4-4e95-b114-97741facb60c"))
+SET `json` = JSON_SET(`json`, '$.viewIDs', JSON_ARRAY("f37866de-d38d-4153-a775-8b47af0d6db1", "1a3e991e-aa1e-4eef-8cf8-fd7c5d97ae53", "4c9c67d1-d687-470d-aa99-4b37fb0dbbb0", "40effdf5-1a5d-4650-9ff8-9d5e863ac7ab", "7ab8a986-24d4-4e95-b114-97741facb60c"))
 WHERE `id` = '63a4cd7c-795e-4aa6-aae5-b6a08e0b39dd';
 
 CREATE TABLE IF NOT EXISTS `SITE_PLUGIN` (
