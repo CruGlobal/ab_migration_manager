@@ -15,4 +15,4 @@ jobs:
     name: Build
     uses: CruGlobal/.github/.github/workflows/build-ecs.yml@v1
     with:
-      microservice-app: appbuilder
+      microservice-app: ab_service_api_sails

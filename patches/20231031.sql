@@ -1,6 +1,6 @@
 # ************************************************************
 # 20231031.sql
-# 
+#
 # This patch adds KEY and SECRET tables
 # ************************************************************
 
@@ -70,7 +70,7 @@ CREATE TABLE `SITE_SECRET` (
 LOCK TABLES `appbuilder_definition` WRITE;
 
 INSERT INTO `appbuilder_definition` (`id`, `name`, `type`, `json`, `createdAt`, `updatedAt`)
-VALUES 
+VALUES
 	('d734fe8c-b615-446c-8a5f-793ddece19f9','KEY','object','{\"id\":\"d734fe8c-b615-446c-8a5f-793ddece19f9\",\"type\":\"object\",\"name\":\"KEY\",\"labelFormat\":\"{b86eb947-06f2-47e4-b79a-9aaf896a0b69}\",\"isImported\":0,\"isExternal\":0,\"tableName\":\"SITE_KEY\",\"primaryColumnName\":\"uuid\",\"transColumnName\":\"\",\"urlPath\":\"\",\"objectWorkspace\":{\"sortFields\":[],\"filterConditions\":{},\"frozenColumnID\":\"\",\"hiddenFields\":[]},\"isSystemObject\":\"true\",\"translations\":[{\"language_code\":\"en\",\"label\":\"Key\"}],\"fieldIDs\":[\"b86eb947-06f2-47e4-b79a-9aaf896a0b69\",\"8ed87a85-14c0-4420-8c64-999a43d456c9\",\"8aaf7041-e401-443d-abf7-5d698171400a\"],\"importedFieldIDs\":[],\"indexIDs\":[],\"objectWorkspaceViews\":{\"currentViewID\":\"5def4544-1cc7-43e3-adab-48ae5de63eb3\",\"list\":[{\"id\":\"5def4544-1cc7-43e3-adab-48ae5de63eb3\",\"translations\":[{\"language_code\":\"en\",\"label\":\"grid\"}],\"isDefaultView\":true,\"name\":\"Default Grid\",\"sortFields\":[],\"filterConditions\":{},\"frozenColumnID\":\"\",\"hiddenFields\":[],\"type\":\"grid\"}]}}','2023-10-16 10:27:24','2023-10-16 10:27:24'),
 	('8ed87a85-14c0-4420-8c64-999a43d456c9','KEY->DefinitionID','field','{\"id\":\"8ed87a85-14c0-4420-8c64-999a43d456c9\",\"type\":\"field\",\"key\":\"string\",\"icon\":\"font\",\"isImported\":0,\"columnName\":\"DefinitionID\",\"settings\":{\"showIcon\":1,\"required\":1,\"unique\":0,\"validationRules\":\"[]\",\"default\":\"\",\"supportMultilingual\":0,\"width\":160},\"translations\":[{\"language_code\":\"en\",\"label\":\"DefinitionID\"}]}','2023-10-16 10:27:24','2023-10-16 10:27:24'),
 	('b86eb947-06f2-47e4-b79a-9aaf896a0b69','KEY->Key','field','{\"id\":\"b86eb947-06f2-47e4-b79a-9aaf896a0b69\",\"type\":\"field\",\"key\":\"string\",\"icon\":\"font\",\"isImported\":0,\"columnName\":\"Key\",\"settings\":{\"showIcon\":1,\"required\":1,\"unique\":0,\"validationRules\":\"[]\",\"default\":\"\",\"supportMultilingual\":0,\"width\":100},\"translations\":[{\"language_code\":\"en\",\"label\":\"Key\"}]}','2023-10-16 10:27:24','2023-10-16 10:27:24'),
@@ -86,6 +86,6 @@ ON DUPLICATE KEY UPDATE
     type = VALUES(type),
     json = VALUES(json),
     createdAt = VALUES(createdAt),
-    updatedAt = VALUES(updatedAt);    
+    updatedAt = VALUES(updatedAt);
 
 UNLOCK TABLES;
