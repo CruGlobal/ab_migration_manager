@@ -55,7 +55,7 @@ const patchFiles = [];
 // {array} [ file1.sql, ... fileN.sql ]
 // a list of the patch files in our patches directory.
 
-const Tenants = [];
+// const Tenants = [];
 // {array} [ tenantID1, ... tenantIDN ]
 // a list of the returned tenants in our site.
 
@@ -107,7 +107,7 @@ function mockController() {
  * @return {Promise}
  */
 function Connect() {
-   return new Promise((resolve, reject) => {
+   return new Promise((resolve /*, reject */) => {
       DB.connect(function (err) {
          if (err) {
             log("mysql not ready ... waiting.", 3);
@@ -141,13 +141,12 @@ function ReadTenants() {
       // ridden in the  req.connections().site.database  setting.
 
       let conn = req.connections();
-      if (conn.site?.database)
-         tenantDB = `\`${conn.site.database}\``;
+      if (conn.site?.database) tenantDB = `\`${conn.site.database}\``;
       tenantDB += ".";
 
       let sql = `SELECT * FROM ${tenantDB}\`site_tenant\` `;
 
-      req.query(sql, [], (error, results, fields) => {
+      req.query(sql, [], (error, results /*, fields*/) => {
          if (error) {
             req.log(sql);
             reject(error);
@@ -162,7 +161,7 @@ function ReadTenants() {
 function tenantUseDB(req) {
    return new Promise((resolve, reject) => {
       let sql = `use ${req.tenantDB()};`;
-      req.queryIsolate(sql, [], (e, r, f) => {
+      req.queryIsolate(sql, [], (e /*, r, f*/) => {
          if (e) {
             reject(e);
             return;
@@ -205,7 +204,7 @@ function doCommand(list, req, cb) {
          return;
       }
       // console.log(command);
-      req.queryIsolate(command, [], (err, results) => {
+      req.queryIsolate(command, [], (err /*, results*/) => {
          // Ignore empty query error
          if (err && err.code !== "ER_EMPTY_QUERY") {
             err.sql = command;
@@ -236,7 +235,7 @@ function tenantPostLastPatch(req, lastPatch) {
    return new Promise((resolve, reject) => {
       let sql =
          'UPDATE `SITE_CONFIG` SET `value` = ? WHERE `key` = "migration-last-patch";';
-      req.queryIsolate(sql, [lastPatch], (err, results /*, fields */) => {
+      req.queryIsolate(sql, [lastPatch], (err /*, results, fields */) => {
          if (err) {
             console.log(err);
             reject(err);
@@ -282,7 +281,8 @@ async function ProcessTenant(id) {
       }
       tenantReq.queryIsolateClose();
       if (error) {
-         if (currPatch != lastPatch) tLog(id, `completed up until patch ${lastPatch}`);
+         if (currPatch != lastPatch)
+            tLog(id, `completed up until patch ${lastPatch}`);
          throw error;
       }
       tLog(id, "tenant migration complete.");
@@ -321,9 +321,9 @@ async function PullPatchFiles() {
 
 //
 // Now we just wait to be closed out when the docker stack is removed.
-function wait() {
-   // console.log(".");
-}
+// function wait() {
+//    // console.log(".");
+// }
 
 async function Do() {
    try {
