@@ -1,5 +1,8 @@
-const path = require("path");
-const { spawn } = require("child_process");
+import path from "path";
+import { fileURLToPath } from "url";
+import { spawn } from "child_process";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 function command(cmd, options) {
    return new Promise((resolve /*, reject */) => {
@@ -11,23 +14,16 @@ function command(cmd, options) {
          console.log(data.toString().trim());
       });
       install.on("close", (/* code */) => {
-         // console.log(` ... close[${code}]`);
-         //   console.log(" ... restarting");
-
-         // setInterval(()=>{ console.log("use cli");}, 10000);
          resolve();
       });
       install.on("exit", (/* code */) => {
-         // console.log(` ... exit[${code}]`);
-         //   console.log(" ... restarting");
-         //   setInterval(()=>{ console.log("use cli");}, 10000);
          resolve();
       });
    });
 }
 
 try {
-   require(path.join(__dirname, "app.js"));
+   await import(path.join(__dirname, "app.js"));
 } catch (e) {
    var strErr = e.toString();
    var match = strErr.match(/Cannot find module '(.*)'/);
