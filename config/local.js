@@ -1,9 +1,9 @@
 /*
  * migration_manager
  */
-const AB = require("@digiserve/ab-utils");
+import AB from "@digiserve/ab-utils";
 
-module.exports = {
+export default {
    migration_manager: {
       /*************************************************************************/
       /* enable: {bool} is this service active?                                */

@@ -24,16 +24,17 @@
 //  sql2: ` MORE SQL STATEMENTS `,
 // }
 //
-const fs = require("fs");
-const path = require("path");
-const process = require("process");
-
-const AB = require("@digiserve/ab-utils");
-
-const Mysql = require("mysql"); // our  {DB Connection}
-const config = require(path.join(__dirname, "config", "local.js"));
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import process from "process";
+import AB from "@digiserve/ab-utils";
+import Mysql from "mysql";
+import config from "./config/local.js";
 // {json}
 // our current set of configuration options for connecting to our DB
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const DB = Mysql.createConnection(config.datastores.site);
 DB.on("error", (err) => {

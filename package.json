@@ -1,5 +1,6 @@
 {
    "name": "migration_manager",
+   "type": "module",
    "version": "0.0.0",
    "description": "(AppBuilder) A service to apply DB migrations to a running site.",
    "main": "app.js",
