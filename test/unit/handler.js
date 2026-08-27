@@ -2,23 +2,15 @@
  * Handler
  * test the interface for our default service handler.
  */
-var path = require("path");
-var _ = require("lodash");
-var expect = require("chai").expect;
-
-// Base config value.
-var defaultConfig = require(
-   path.join(__dirname, "..", "..", "config", "migration_manager"),
-);
-
-// Our service handler:
-var Handler = require(path.join(__dirname, "..", "..", "src", "handler"));
+import _ from "lodash";
+import { expect } from "chai";
+import defaultConfig from "../../config/local.js";
+import Handler from "../../src/handler.js";
 
 describe("migration_manager: handler", function () {
-   // Check for proper initialization
    describe("-> missing config", function () {
       it("should return an error when receiving a job request #missingconfig ", function (done) {
-         Handler.init(null); // clear the config in case it is already set
+         Handler.init(null);
          var request = {};
          Handler.fn(request, (err, response) => {
             expect(err).to.exist;
@@ -29,10 +21,9 @@ describe("migration_manager: handler", function () {
       });
    });
 
-   // handle a disabled state:
    describe("-> disabled ", function () {
-      var disabledConfig = _.clone(defaultConfig, true);
-      disabledConfig.enable = false;
+      var disabledConfig = _.cloneDeep(defaultConfig);
+      disabledConfig.migration_manager.enable = false;
 
       it("should return an error when receiving a job request #disabled ", function (done) {
          Handler.init({ config: disabledConfig });
